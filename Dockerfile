@@ -18,9 +18,11 @@ RUN mkdir -p /opt/src/github.com/go-spatial
 RUN git clone -b issue-53-fuzzing --single-branch https://github.com/chebizarro/tegola.git \
 	/opt/src/github.com/go-spatial/tegola
 
-#RUN go-fuzz-gen -out ./sample github.com/go-spatial/tegola/geom/encoding/wkb
-
 RUN go-fuzz-build github.com/go-spatial/tegola/geom/encoding/wkb
+
 RUN mkdir sample
+
+RUN gen -out ./sample github.com/go-spatial/tegola/geom/encoding/wkb
+
 RUN ls -la sample 
 RUN go-fuzz -bin=./wkb-fuzz.zip -workdir=sample
