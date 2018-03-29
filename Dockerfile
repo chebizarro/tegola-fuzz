@@ -10,7 +10,7 @@ ENV GOPATH=/opt
 ENV PATH=$PATH:$GOPATH/bin
 RUN mkdir -p /opt/src/github.com/go-spatial
 RUN git clone -b issue-53-fuzzing --single-branch https://github.com/chebizarro/tegola.git \
-	/opt/src/github.com/go-spatial
+	/opt/src/github.com/go-spatial/tegola
 RUN go get -u github.com/dvyukov/go-fuzz/gen
 RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz-build
 RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz-defs
