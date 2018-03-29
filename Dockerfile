@@ -7,6 +7,7 @@ RUN apk add musl-dev=1.1.18-r3
 RUN apk add gcc=6.4.0-r5
 
 ENV GOPATH=/opt
+ENV PATH=$PATH:$GOPATH/bin
 RUN mkdir -p /opt/src/github.com/go-spatial
 RUN git clone -b issue-53-fuzzing --single-branch https://github.com/chebizarro/tegola.git \
 	/opt/src/github.com/go-spatial
