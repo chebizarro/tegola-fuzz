@@ -22,7 +22,7 @@ RUN go-fuzz-build github.com/go-spatial/tegola/geom/encoding/wkb
 
 RUN mkdir sample
 
-RUN gen -out ./sample github.com/go-spatial/tegola/geom/encoding/wkb
+RUN github.com/dvyukov/go-fuzz/gen -out ./sample github.com/go-spatial/tegola/geom/encoding/wkb
 
 RUN ls -la sample 
 RUN go-fuzz -bin=./wkb-fuzz.zip -workdir=sample
