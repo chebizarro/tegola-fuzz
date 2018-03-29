@@ -23,4 +23,4 @@ RUN git clone -b issue-53-fuzzing --single-branch https://github.com/chebizarro/
 
 RUN go-fuzz-build github.com/go-spatial/tegola/geom/encoding/wkb
 
-RUN go-fuzz -bin=./wkb-fuzz.zip -workdir=/opt/fuzzing
+#RUN go-fuzz -bin=./wkb-fuzz.zip -workdir=/opt/fuzzing
