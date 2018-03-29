@@ -15,15 +15,12 @@ RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz-dep
 RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz
 
 RUN mkdir -p /opt/src/github.com/go-spatial
-RUN mkdir sample
+RUN mkdir -p /opt/fuzzing
+COPY corpus /opt/fuzzing/corpus
 
 RUN git clone -b issue-53-fuzzing --single-branch https://github.com/chebizarro/tegola.git \
 	/opt/src/github.com/go-spatial/tegola
 
-RUN cd /opt/src/github.com/go-spatial/tegola/geom/encoding/wkb && \
-	go run gen/main.go -out /opt/sample
-
 RUN go-fuzz-build github.com/go-spatial/tegola/geom/encoding/wkb
 
-RUN ls -la /opt/sample 
 RUN go-fuzz -bin=./wkb-fuzz.zip -workdir=/opt/sample
