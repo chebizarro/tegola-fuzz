@@ -17,5 +17,5 @@ RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz-defs
 RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz-dep
 RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz
 
-RUN go-fuzz-build src/github.com/go-spatial/tegola/geom/encoding/wkb
+RUN go-fuzz-build github.com/go-spatial/tegola/geom/encoding/wkb
 RUN ls -la
