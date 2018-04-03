@@ -8,12 +8,7 @@ RUN apk add gcc=6.4.0-r5
 
 ENV GOPATH=/opt
 ENV PATH=$PATH:$GOPATH/bin
-RUN go get -u github.com/dvyukov/go-fuzz/gen
-RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz-build
-RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz-defs
-RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz-dep
-RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz
-
+RUN go get -u github.com/dvyukov/go-fuzz/...
 RUN mkdir -p /opt/src/github.com/go-spatial
 RUN mkdir -p /opt/fuzzing
 COPY corpus /opt/fuzzing/corpus
