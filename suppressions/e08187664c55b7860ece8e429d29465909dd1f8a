@@ -1,0 +1,8 @@
+fatal error: runtime: out of memory
+runtime.startpanic_m
+runtime.systemstack
+runtime.startpanic
+runtime.sighandler
+runtime.sigtrampgo
+runtime.sigtramp
+runtime.sigreturn
